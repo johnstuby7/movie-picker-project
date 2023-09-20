@@ -10,11 +10,16 @@ function SearchCard() {
         <h1>Search</h1>
         <form>
           <label htmlFor="title">Title: </label>
-          <input id="title" type="text" value="" />
+          <input id="title" type="text" placeholder="Enter a movie Title" />
           <label htmlFor="director">Director: </label>
-          <input id="director" type="text" value="" />
+          <input
+            id="director"
+            type="text"
+            value=""
+            placeholder="Enter a Directors name"
+          />
           <label htmlFor="genre">Genre: </label>
-          <select>
+          <select id="genre">
             <option value="horror">Horror</option>
             <option value="action">Action</option>
           </select>
