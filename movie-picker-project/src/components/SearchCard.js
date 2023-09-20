@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./SearchCard.module.css";
-import Button from "./UI/Button";
+
 import Card from "./UI/Card";
 
 function SearchCard() {
@@ -10,14 +10,23 @@ function SearchCard() {
         <h1>Search</h1>
         <form>
           <label htmlFor="title">Title: </label>
-          <input id="title" type="text" /> <br /> <br />
+          <input id="title" type="text" value="" />
           <label htmlFor="director">Director: </label>
-          <input id="director" type="text" /> <br /> <br />
+          <input id="director" type="text" value="" />
           <label htmlFor="genre">Genre: </label>
-          <input id="genre" type="text" /> <br /> <br />
+          <select>
+            <option value="horror">Horror</option>
+            <option value="action">Action</option>
+          </select>
+          <br />
           <label htmlFor="rating">Rating: </label>
-          <input id="rating" type="text" /> <br />
-          <Button>Search </Button>
+          <select>
+            <option value="oneStar">One Star</option>
+            <option value="twoStar">Two Star</option>
+            <option value="threeStar">Three Star</option>
+            <option value="fourStar">Four Star</option>
+            <option value="fiveStar">Five Star</option>
+          </select>
         </form>
       </Card>
     </div>
