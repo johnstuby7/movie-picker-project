@@ -19,6 +19,15 @@ const userInput = (validateValue) => {
     setEnteredValue("");
     setIsTouched(false);
   };
+
+  return {
+    value: enteredValue,
+    isValid: valueIsValid,
+    hasError,
+    valueChangeHandler,
+    inputBlurHandler,
+    reset,
+  };
 };
 
 export default userInput;
