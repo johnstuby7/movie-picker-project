@@ -1,10 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./SearchCard.module.css";
-
+import useInput from "../hooks/use-input";
 import Card from "./UI/Card";
 
+const isNotEmpty = (value) => value.trim() !== "";
+
 const SearchCard = () => {
-  const isNotEmpty = (value) => value.trim() !== "";
+  const {
+    value: titleValue,
+    isValid: titleIsValid,
+    hasError: titleHasError,
+    valueChangeHandler: titleChangeHandler,
+    inputBlurHandler: titleBlurHandler,
+    reset: resetTitle,
+  } = useInput(isNotEmpty);
+
+  const {
+    value: directorValue,
+    isValid: directorIsValid,
+    hasError: directorHasError,
+    valueChangeHandler: directorChangeHandler,
+    inputBlurHandler: directorBlurHandler,
+    reset: resetDirector,
+  } = useInput(isNotEmpty);
 
   const genreOptions = [
     "Action",
