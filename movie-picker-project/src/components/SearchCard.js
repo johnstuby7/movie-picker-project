@@ -30,6 +30,20 @@ const SearchCard = () => {
     formIsValid = true;
   }
 
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    if (!formIsValid) {
+      return;
+    }
+
+    console.log("Submitted");
+    console.log(titleValue, directorValue);
+
+    resetTitle();
+    resetDirector();
+  };
+
   const genreOptions = [
     "Action",
     "Adventure",
@@ -55,6 +69,11 @@ const SearchCard = () => {
   ];
 
   const ratingOption = ["one", "two", "three", "four", "five"];
+
+  const titleClasses = titleHasError ? "form-control invalid" : "form-control";
+  const directorClasses = directorHasError
+    ? "form-control invalid"
+    : "form-control";
 
   return (
     <div>
@@ -95,7 +114,9 @@ const SearchCard = () => {
             })}
           </select>
           <br />
-          <button>Submit</button>
+          <button disabled={!formIsValid} type="submit" onClick={submitHandler}>
+            Submit
+          </button>
           <button>Clear</button>
         </form>
       </Card>
