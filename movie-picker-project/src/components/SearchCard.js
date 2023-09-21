@@ -24,6 +24,12 @@ const SearchCard = () => {
     reset: resetDirector,
   } = useInput(isNotEmpty);
 
+  let formIsValid = false;
+
+  if (titleIsValid && directorIsValid) {
+    formIsValid = true;
+  }
+
   const genreOptions = [
     "Action",
     "Adventure",
@@ -56,13 +62,22 @@ const SearchCard = () => {
         <h1>Search</h1>
         <form>
           <label htmlFor="title">Title: </label>
-          <input id="title" type="text" placeholder="Enter a movie Title" />
+          <input
+            id="title"
+            type="text"
+            placeholder="Enter a movie Title"
+            value={titleValue}
+            onChange={titleChangeHandler}
+            onBlur={titleBlurHandler}
+          />
           <label htmlFor="director">Director: </label>
           <input
             id="director"
             type="text"
-            value=""
+            value={directorValue}
             placeholder="Enter a Directors name"
+            onChange={directorChangeHandler}
+            onBlur={directorBlurHandler}
           />
           <label htmlFor="genre">Genre: </label>
           <select id="genre">
