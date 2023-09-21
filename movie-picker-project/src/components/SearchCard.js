@@ -6,8 +6,6 @@ import Card from "./UI/Card";
 const SearchCard = () => {
   const isNotEmpty = (value) => value.trim() !== "";
 
-  const [enteredTitle, setEnteredTitle] = useState("");
-
   const genreOptions = [
     "Action",
     "Adventure",
