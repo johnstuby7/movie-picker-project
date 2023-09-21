@@ -4,8 +4,32 @@ import classes from "./SearchCard.module.css";
 import Card from "./UI/Card";
 
 function SearchCard() {
+  const genreOptions = [
+    "Action",
+    "Adventure",
+    "Animation",
+    "Comedy",
+    "Cyberpunk",
+    "Crime",
+    "Drama",
+    "Experimental",
+    "Fantasy",
+    "History",
+    "Horror",
+    "Martial Arts",
+    "Romance",
+    "Satire",
+    "Science Fiction",
+    "Slasher",
+    "Sports",
+    "Spy",
+    "Thriller",
+    "Western",
+    "War",
+  ];
+
   return (
-    <div className="SearchCard">
+    <div>
       <Card className={classes.input}>
         <h1>Search</h1>
         <form>
@@ -20,8 +44,10 @@ function SearchCard() {
           />
           <label htmlFor="genre">Genre: </label>
           <select id="genre">
-            <option value="horror">Horror</option>
-            <option value="action">Action</option>
+            <option>Please choose one option</option>
+            {genreOptions.map((option, index) => {
+              return <option key={index}>{option}</option>;
+            })}
           </select>
           <br />
           <label htmlFor="rating">Rating: </label>
