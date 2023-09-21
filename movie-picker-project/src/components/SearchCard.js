@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./SearchCard.module.css";
 
 import Card from "./UI/Card";
 
-function SearchCard() {
+const SearchCard = () => {
+  const isNotEmpty = (value) => value.trim() !== "";
+
+  const [enteredTitle, setEnteredTitle] = useState("");
+
   const genreOptions = [
     "Action",
     "Adventure",
@@ -28,6 +32,8 @@ function SearchCard() {
     "War",
   ];
 
+  const ratingOption = ["one", "two", "three", "four", "five"];
+
   return (
     <div>
       <Card className={classes.input}>
@@ -44,7 +50,7 @@ function SearchCard() {
           />
           <label htmlFor="genre">Genre: </label>
           <select id="genre">
-            <option>Please choose one option</option>
+            <option>Genre</option>
             {genreOptions.map((option, index) => {
               return <option key={index}>{option}</option>;
             })}
@@ -52,16 +58,18 @@ function SearchCard() {
           <br />
           <label htmlFor="rating">Rating: </label>
           <select>
-            <option value="oneStar">One Star</option>
-            <option value="twoStar">Two Star</option>
-            <option value="threeStar">Three Star</option>
-            <option value="fourStar">Four Star</option>
-            <option value="fiveStar">Five Star</option>
+            <option>Rating</option>
+            {ratingOption.map((option, index) => {
+              return <option key={index}>{option}</option>;
+            })}
           </select>
+          <br />
+          <button>Submit</button>
+          <button>Clear</button>
         </form>
       </Card>
     </div>
   );
-}
+};
 
 export default SearchCard;
