@@ -44,6 +44,11 @@ const SearchCard = () => {
     resetDirector();
   };
 
+  const clearHandler = (event) => {
+    resetTitle();
+    resetDirector();
+  };
+
   const genreOptions = [
     "Action",
     "Adventure",
@@ -80,24 +85,28 @@ const SearchCard = () => {
       <Card className={classes.input}>
         <h1>Search</h1>
         <form>
-          <label htmlFor="title">Title: </label>
-          <input
-            id="title"
-            type="text"
-            placeholder="Enter a movie Title"
-            value={titleValue}
-            onChange={titleChangeHandler}
-            onBlur={titleBlurHandler}
-          />
-          <label htmlFor="director">Director: </label>
-          <input
-            id="director"
-            type="text"
-            value={directorValue}
-            placeholder="Enter a Directors name"
-            onChange={directorChangeHandler}
-            onBlur={directorBlurHandler}
-          />
+          <div className={titleClasses}>
+            <label htmlFor="title">Title: </label>
+            <input
+              id="title"
+              type="text"
+              placeholder="Enter a movie Title"
+              value={titleValue}
+              onChange={titleChangeHandler}
+              onBlur={titleBlurHandler}
+            />
+          </div>
+          <div className={directorClasses}>
+            <label htmlFor="director">Director: </label>
+            <input
+              id="director"
+              type="text"
+              value={directorValue}
+              placeholder="Enter a Directors name"
+              onChange={directorChangeHandler}
+              onBlur={directorBlurHandler}
+            />
+          </div>
           <label htmlFor="genre">Genre: </label>
           <select id="genre">
             <option>Genre</option>
@@ -117,7 +126,7 @@ const SearchCard = () => {
           <button disabled={!formIsValid} type="submit" onClick={submitHandler}>
             Submit
           </button>
-          <button>Clear</button>
+          <button onClick={clearHandler}>Clear</button>
         </form>
       </Card>
     </div>
